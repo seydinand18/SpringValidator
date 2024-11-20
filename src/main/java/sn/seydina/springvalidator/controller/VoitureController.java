@@ -1,7 +1,9 @@
 package sn.seydina.springvalidator.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sn.seydina.springvalidator.model.Voiture;
@@ -15,8 +17,9 @@ public class VoitureController {
     private final List<Voiture> voitures = new ArrayList<>();
 
     @PostMapping
-    public ResponseEntity<Voiture> create(Voiture voiture) {
+    public ResponseEntity<Voiture> create(@Valid @RequestBody Voiture voiture) {
         voitures.add(voiture);
+
         Voiture voitureAjoutee = voitures.get(voitures.size() - 1);
         return ResponseEntity.ok(voitureAjoutee);
     }

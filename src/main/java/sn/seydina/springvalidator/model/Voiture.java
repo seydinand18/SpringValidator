@@ -1,8 +1,10 @@
 package sn.seydina.springvalidator.model;
 
 import jakarta.validation.constraints.*;
+import lombok.Data;
 import sn.seydina.springvalidator.validator.AnneeValid;
 
+@Data
 public class Voiture {
 
     @NotNull(message = "le numero d'immatriculation doit être fourni")
